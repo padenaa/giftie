@@ -124,7 +124,8 @@ const createCard = (note, noteId, ideas) => {
                     
                 </div>
                 <footer class="media-content">
-                    <a id="${noteId}" href="#" class="card-footer-item js-modal-trigger" data-target="modal-js-example" style="color: rgb(171, 212, 248);" onclick="edit('${noteId}')">Edit</a>
+                    <a id="${noteId}" href="#" class="card-footer-item js-modal-trigger" data-target="modal-js-example" style="color: rgb(171, 212, 248);" onclick="edit('${noteId}')"><i class='fas fa-edit'></i></a>
+                    <a href="#" class="card-footer-item js-modal-trigger" data-target="modal-js-example" style="color: rgb(171, 212, 248);" onclick="getRecommend('${noteId}')"><i class='fas fa-magic'></i></a>
                 </footer>
             </article>
             </div>
@@ -154,3 +155,35 @@ function edit(noteId){
     })
 
 }
+
+function getRecommend(noteId) {
+  const dbRef = firebase.database().ref(`${googleUserId}/${noteId}`);
+    let friend;
+    dbRef.on('value', (snapshot) => {
+        friend = snapshot.val();
+  })
+  let data = {
+      relationship: friend.relationship,
+      ideas: friend.ideas
+  }
+  callAPI(data, friend.name)
+
+}
+
+const callAPI = async (input, name) => {
+  let data = {
+      info: input
+  }
+  const response = await fetch('http://localhost:8000/api/recommend', {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+  })
+
+  let resJSON = await response.json();
+  result = resJSON['recommendation'];
+  alert(result)
+}
+  
