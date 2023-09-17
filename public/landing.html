@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>giftie</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/10.4.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/10.4.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/10.4.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/10.4.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/10.4.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/10.4.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/10.4.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/10.4.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/10.4.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/10.4.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Mooli" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <style type="text/css">
+      html,
+      body {
+          font-family: 'Mooli';
+          min-height: 100vh;
+      }
+
+      img {
+          padding: 5px;
+          border: 1px solid #ccc;
+      }
+    </style>
+</head>
+
+<body style="background-color: #f7bfe8; ">
+    <!-- HEADER -->
+    <section class="hero is-small is-primary has-text-centered" style="background-color:rgb(171, 212, 248)">
+        <div class="hero-body">
+          <h1 class="title is-1">
+            giftie 
+          </h1>
+        </div>
+    </section>
+
+        <!--CARDS-->
+        <section class="section " style="padding-right: 100px; padding-left: 100px">
+            <div class="column is-two-thirds is-offset-one-fifth">
+                <div class="box has-text-centered">
+                <article class="media">
+                    <div class="media-content">
+                        <a class="title" href="add.html">
+                            +         
+                        </a>
+                    </div>
+                    
+                </article>
+                </div>
+            </div>
+            <div id="cards" class="columns is-multiline">
+                <!--friends will appear here -->
+            </div>
+            
+
+        </section>
+    </div>
+    
+  </div>
+  
+  <div class="modal" id="modal">
+    <div class="modal-background">
+        <div class="modal-card">
+            <header class="modal-card-head">
+            <p class="modal-card-title" id="modalTitle">Modal title</p>
+            </header>
+            <section class="modal-card-body">
+                <div class="field">
+                    <!--description-->
+                    <label class="label">Gift Ideas</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Ideas" id="modalIdeas"></textarea>
+                    </div>
+                  </div>
+            </section>
+            <footer class="modal-card-foot">
+            <button class="button" style="background-color:rgb(171, 212, 248)" id="saveChange">Save changes</button>
+            <button class="button">Cancel</button>
+            </footer>
+        </div>
+    </div>
+    <script src="js/landing.js" type="text/javascript" defer></script>
+    </div>
+</body>
+
+</html>
